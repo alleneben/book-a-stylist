@@ -1,5 +1,5 @@
 import { IResolvers } from 'graphql-tools';
-import { Users, Providers } from '../models/models';
+import { Users, Providers, Services } from '../models/models';
 import { Auth } from '../utils/auth'
 
 
@@ -31,6 +31,18 @@ export const resolvers: IResolvers = {
 
             const pd = JSON.parse(JSON.stringify(params));
             const data = await Providers.find(pd)
+            
+            return data
+        },
+        
+        services: async (_, { params },context) => {
+            const { authorization: token } = context.headers;
+
+            const response:any = await new Auth().isTokenValid(token);
+            if (response.error) throw new Error(response.error);
+
+            const pd = JSON.parse(JSON.stringify(params));
+            const data = await Services.find(pd)
             
             return data
         }
