@@ -54,5 +54,65 @@ export class Providers extends BaseEntity{
 
 	@Column()
 	longitude!: string;
+}
 
+
+@Entity("r_services")
+export class Services extends BaseEntity{
+
+	@PrimaryGeneratedColumn("increment")
+	service_id: number | undefined;
+
+
+	@Column()
+	image!: string;
+
+
+	@Column()
+	service_name!: string;
+
+	@Column()
+	service_description!: string;
+
+	@Column()
+	service_category_id!: number;
+
+	@Column()
+	user_id!: number;
+
+	@Column()
+	provider_id!: number;
+
+	@Column()
+	created_date!: number;
+
+	@Column()
+	price!: number;
+
+	@Column()
+	available_count!: number;
+
+	@Column()
+	public!: number;
+
+	@Column()
+	price_show!: number;
+
+	@Column()
+	customer_cancel!: number;
+
+	@Column()
+	schedule_type!: number;
+
+	@Column()
+	service_booking_type!: string
+
+	@Column()
+	service_min_duration!: number
+
+	@Column()
+	can_travel!: number;
+
+	@Column()
+	can_travel_charge!: number;
 }
