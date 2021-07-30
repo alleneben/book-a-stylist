@@ -2,7 +2,6 @@ import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 import dotenv from "dotenv";
-import { auth } from 'express-openid-connect';
 
 dotenv.config();
 import { DB } from  './db/db';
