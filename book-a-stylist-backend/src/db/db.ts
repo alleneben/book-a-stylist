@@ -1,7 +1,6 @@
 import { ConnectionOptions, createConnection, Connection } from "typeorm";
 import dotenv from "dotenv";
 import path from 'path';
-import { Users, Providers, Services } from "../models/models";
 
 
 
@@ -20,7 +19,8 @@ const DB_CONFIG: ConnectionOptions = {
     database: process.env.DB,
     entities: [
         path.join(__dirname,'../models/**/**.ts')
-    ]
+    ],
+    // synchronize: true
 }
 
 export class DB {

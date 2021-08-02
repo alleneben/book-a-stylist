@@ -1,11 +1,12 @@
 import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server-express';
+// import { buildSchema } from 'type-graphql';
 import express from 'express';
 import dotenv from "dotenv";
 
 dotenv.config();
 import { DB } from  './db/db';
-import { resolvers } from './resolvers/appresolvers';
+import {resolvers} from './resolvers/appresolvers';
 import { typeDefs } from './typedefs/typedefs';
 
 // const config = {
@@ -20,15 +21,12 @@ import { typeDefs } from './typedefs/typedefs';
 class Server {
     
     
-    public start() {
+    public async start() {
         const db = new DB();
         const server = new ApolloServer({
             typeDefs,
             resolvers:[resolvers,],
-            context: ({ req, res }) => {
-                
-                return req;
-            }
+            context: ({ req, res}) => ({ req, res})
         });
         
         const app = express();

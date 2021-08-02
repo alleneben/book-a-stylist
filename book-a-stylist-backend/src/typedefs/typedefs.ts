@@ -27,17 +27,16 @@ export const typeDefs = gql`
         image: String
         image_cover: String
         description: String
-        services: [Service]
+        services: [Services]
     }
 
-    type Service {
+    type Services {
         service_id: String
         image: String
         service_name: String
         service_description: String
         service_category_id: Int
         user_id: Int
-        provider_id: Int
         created_date: Int
         price: Float
         available_count: Int
@@ -51,37 +50,33 @@ export const typeDefs = gql`
         can_travel_charge: Int
         provider: Provider
     }
-    
-    type Author {
-        id: Int!
-        first_name: String!
-        last_name: String!
-        books: [Book]!
-      }
-  
-      type Book {
-        id: Int!
-        title: String!
-        cover_image_url: String!
-        average_rating: Float!
-        author: Author!
-      }
+
+    type Users {
+        user_id: Int
+        name: String
+        photos: [Photo]
+    }
+
+    type Photo {
+        photo_id: Int
+        url: String
+        user: [Users]
+    }
 
     input Params {
         user_id: ID
         username: String
         user_uuid: String
         fullname: String
+        id: String
     }
 
     type Query {
         hello: String!
         users(params: Params): [User]
         providers(params: Params): [Provider]
-        services(params: Params): [Service]
-        books: [Book!]!
-        book(id: Int!): Book!
-        author(id: Int!): Author!
+        services(params: Params): [Services]
+        user_photo(params: Params): [Users]
     }
 
     type Mutation {
