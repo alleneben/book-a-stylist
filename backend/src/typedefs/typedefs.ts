@@ -27,16 +27,17 @@ export const typeDefs = gql`
         image: String
         image_cover: String
         description: String
-        services: [Services]
+        service: [Service]
     }
 
-    type Services {
+    type Service {
         service_id: String
         image: String
         service_name: String
         service_description: String
         service_category_id: Int
         user_id: Int
+        provider_id: Int
         created_date: Int
         price: Float
         available_count: Int
@@ -51,18 +52,6 @@ export const typeDefs = gql`
         provider: Provider
     }
 
-    type Users {
-        user_id: Int
-        name: String
-        photos: [Photo]
-    }
-
-    type Photo {
-        photo_id: Int
-        url: String
-        user: [Users]
-    }
-
     input Params {
         user_id: ID
         username: String
@@ -75,8 +64,7 @@ export const typeDefs = gql`
         hello: String!
         users(params: Params): [User]
         providers(params: Params): [Provider]
-        services(params: Params): [Services]
-        user_photo(params: Params): [Users]
+        services(params: Params): [Service]
     }
 
     type Mutation {

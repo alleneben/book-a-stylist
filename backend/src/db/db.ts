@@ -18,7 +18,7 @@ const DB_CONFIG: ConnectionOptions = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB,
     entities: [
-        path.join(__dirname,'../models/**/**.ts')
+        path.join(__dirname,'../entities/**/**.ts')
     ],
     // synchronize: true
 }
