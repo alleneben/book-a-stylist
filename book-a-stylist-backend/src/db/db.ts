@@ -1,5 +1,6 @@
 import { ConnectionOptions, createConnection, Connection } from "typeorm";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
+import path from 'path';
 import { Users, Providers, Services } from "../models/models";
 
 
@@ -17,7 +18,9 @@ const DB_CONFIG: ConnectionOptions = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB,
-    entities: [Users, Providers, Services]
+    entities: [
+        path.join(__dirname,'../models/**/**.ts')
+    ]
 }
 
 export class DB {
@@ -29,7 +32,7 @@ export class DB {
 
     async connect() {
         const connection: Connection = await createConnection(DB_CONFIG);    
-
+        console.log('DB Connected...')
         return connection;
     }
 }

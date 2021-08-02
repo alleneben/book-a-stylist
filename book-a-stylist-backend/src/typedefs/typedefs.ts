@@ -14,8 +14,8 @@ export const typeDefs = gql`
     }
 
     type Provider {
-        user_id: Int!
-        provider_id: Int!
+        user_id: Int
+        provider_id: Int
         provider_username: String
         provider_name: String
         fullname: String
@@ -27,6 +27,7 @@ export const typeDefs = gql`
         image: String
         image_cover: String
         description: String
+        services: [Service]
     }
 
     type Service {
@@ -48,8 +49,23 @@ export const typeDefs = gql`
         service_min_duration: Int
         can_travel: Int
         can_travel_charge: Int
+        provider: Provider
     }
     
+    type Author {
+        id: Int!
+        first_name: String!
+        last_name: String!
+        books: [Book]!
+      }
+  
+      type Book {
+        id: Int!
+        title: String!
+        cover_image_url: String!
+        average_rating: Float!
+        author: Author!
+      }
 
     input Params {
         user_id: ID
@@ -63,6 +79,9 @@ export const typeDefs = gql`
         users(params: Params): [User]
         providers(params: Params): [Provider]
         services(params: Params): [Service]
+        books: [Book!]!
+        book(id: Int!): Book!
+        author(id: Int!): Author!
     }
 
     type Mutation {

@@ -1,4 +1,4 @@
-import { Entity, Column, BaseEntity, PrimaryGeneratedColumn, getConnection, OneToMany } from "typeorm";
+import { Entity, Column, BaseEntity, PrimaryGeneratedColumn, CreateDateColumn,ManyToOne, OneToMany } from "typeorm";
 
 
 @Entity("users")
@@ -54,12 +54,15 @@ export class Providers extends BaseEntity{
 
 	@Column()
 	longitude!: string;
+
+
+	// @OneToMany(type => Services, service => service.provider_id) services!: Services[];  
+
 }
 
 
 @Entity("r_services")
 export class Services extends BaseEntity{
-
 	@PrimaryGeneratedColumn("increment")
 	service_id: number | undefined;
 
@@ -83,7 +86,7 @@ export class Services extends BaseEntity{
 	@Column()
 	provider_id!: number;
 
-	@Column()
+	@CreateDateColumn({ type: 'timestamp', default: 'now()'})
 	created_date!: number;
 
 	@Column()
@@ -115,4 +118,7 @@ export class Services extends BaseEntity{
 
 	@Column()
 	can_travel_charge!: number;
+
+	// @ManyToOne(type => Providers, provider => provider.services) provider!: Providers; 
+
 }

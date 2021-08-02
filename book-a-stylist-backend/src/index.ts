@@ -25,7 +25,7 @@ class Server {
         const server = new ApolloServer({
             typeDefs,
             resolvers:[resolvers,],
-            context: ({ req }) => {
+            context: ({ req, res }) => {
                 
                 return req;
             }
