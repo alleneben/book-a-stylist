@@ -1,4 +1,4 @@
-import { Entity, Column, BaseEntity, PrimaryGeneratedColumn, CreateDateColumn,ManyToOne } from "typeorm";
+import { Entity, Column, BaseEntity, PrimaryGeneratedColumn, CreateDateColumn,ManyToOne,JoinColumn } from "typeorm";
 import { Provider } from './provider';
 
 
@@ -7,7 +7,7 @@ import { Provider } from './provider';
 export class Service extends BaseEntity{
 	
 	@PrimaryGeneratedColumn("increment")
-	service_id: number | undefined;
+	id: number | undefined;
 
 	@Column()
 	image!: string;
@@ -22,10 +22,10 @@ export class Service extends BaseEntity{
 	service_category_id!: number;
 
 	@Column()
-	user_id!: number;
+	userId!: number;
 	
 	@Column()
-	provider_id!: number;
+	providerId!: number;
 	
 	@CreateDateColumn({ type: 'timestamp', default: 'now()'})
 	created_date!: number;

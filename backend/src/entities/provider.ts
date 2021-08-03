@@ -1,15 +1,15 @@
-import { Entity, Column, BaseEntity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Entity, Column, BaseEntity, PrimaryGeneratedColumn, OneToMany, JoinTable, JoinColumn } from "typeorm";
 import { Service } from './service';
 
 @Entity("r_providers")
 export class Provider extends BaseEntity{
 	
 	@PrimaryGeneratedColumn("increment")
-	provider_id: number | undefined;
+	id: number | undefined;
 
 	
 	@Column()
-	user_id!: number;
+	userId!: number;
 
 	
 	@Column()
@@ -31,6 +31,6 @@ export class Provider extends BaseEntity{
 	@Column()
 	longitude!: string;
 
-	@OneToMany(() => Service, service => service.provider)
+	@OneToMany(() => Service, service => service.provider, { eager: true })
     service!: Service[];
 }

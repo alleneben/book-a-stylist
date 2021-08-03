@@ -3,7 +3,7 @@ import { gql } from 'apollo-server-express'
 
 export const typeDefs = gql`
     type User {
-        user_id: ID
+        id: ID
         username: String
         user_uuid: String
         fullname: String
@@ -14,8 +14,8 @@ export const typeDefs = gql`
     }
 
     type Provider {
-        user_id: Int
-        provider_id: Int
+        id: Int
+        userId: Int
         provider_username: String
         provider_name: String
         fullname: String
@@ -31,13 +31,13 @@ export const typeDefs = gql`
     }
 
     type Service {
-        service_id: String
+        id: Int
         image: String
         service_name: String
         service_description: String
         service_category_id: Int
-        user_id: Int
-        provider_id: Int
+        userId: Int
+        providerId: Int
         created_date: Int
         price: Float
         available_count: Int
@@ -53,11 +53,10 @@ export const typeDefs = gql`
     }
 
     input Params {
-        user_id: ID
+        userId: ID
         username: String
         user_uuid: String
         fullname: String
-        id: String
     }
 
     type Query {

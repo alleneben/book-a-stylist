@@ -23,14 +23,9 @@ export const resolvers: IResolvers = {
         providers: async (_, { params },context) => {
             const { authorization: token } = context.req.headers;
 
-            const response:any = await new Auth().isTokenValid(token);
-            if (response.error) throw new Error(response.error);
-
-
-            let connection = getConnection()
-            const servicesRepository = connection.getRepository(Provider);
-            const services = await servicesRepository.find({ relations: ['service'] });
-
+            // const response:any = await new Auth().isTokenValid(token);
+            // if (response.error) throw new Error(response.error);
+    
 
             const pd = JSON.parse(JSON.stringify(params));
             const data = await Provider.find(pd)
