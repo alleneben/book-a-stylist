@@ -19,6 +19,7 @@
     "jwks-rsa": "^2.0.3",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
     "typeorm": "^0.2.32"
   },
   "devDependencies": {
