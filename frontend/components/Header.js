@@ -136,6 +136,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
         <Link
             outlineColor='none'
             outline='none'
+          
             href={to} _hover={{
                 color: 'pink',
             }}>

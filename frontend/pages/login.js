@@ -16,7 +16,7 @@ const login = () => {
             <Box maxW="2xlg" borderWidth="5" borderRadius="lg" h="60%" w="900px" bg="white" shadow="lg" >
                 <Flex>
                     <Image src="/barbar.jpg" w="50%" h="455px" borderLeftRadius="lg" fit="cover" />
-                    <Flex Flex width="50%" align="start" justifyContent="center">
+                    <Flex  width="50%" align="start" justifyContent="center">
                         <Box px="10">
                             <Box >
                                 <Text fontWeight="semibold" fontSize="xl" isTruncated pt="12" pb="10px" >
