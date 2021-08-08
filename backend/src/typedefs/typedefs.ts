@@ -60,7 +60,7 @@ export const typeDefs = gql`
     }
 
     type Query {
-        hello: String!
+        me: User!
         users(params: Params): [User]
         providers(params: Params): [Provider]
         services(params: Params): [Service]

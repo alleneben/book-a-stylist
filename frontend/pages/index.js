@@ -16,15 +16,9 @@ export default function Home() {
         <title>BasFrontEnd</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="menu">
-
-      </header>
-
-
       <main className="main__body" color='black' >
         <MenuWrapper/>
       </main>
-
       <footer className="main__footer">
         <Basfooter />
       </footer>
