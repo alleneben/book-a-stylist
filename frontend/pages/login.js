@@ -155,14 +155,7 @@ const login = () => {
                                 objectFit="cover"
                             />
                         </div>
-                        <div>
-                            <Image
-                                src="/post.jpg"
-                                height="100vh"
-                                width="100%"
-                                objectFit="cover"
-                            />
-                        </div>
+                        
                     </AutoplaySlider>
                     <Box
                         position="absolute"

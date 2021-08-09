@@ -16,7 +16,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-const AreaStylist = () => {
+const AreaStylist = ({ data }) => {
+  const { provider_name } = data
   return (
     <Link href='/detail' >
     <Flex
@@ -58,7 +59,7 @@ const AreaStylist = () => {
             fontWeight="bold"
             color={useColorModeValue("gray.800", "white")}
           >
-            ABC company
+            {provider_name}
           </chakra.h1>
 
           <chakra.p py={2} color={useColorModeValue("gray.700", "gray.400")}>

@@ -1,5 +1,4 @@
 import { Auth } from './auth'
-import jwt from 'jsonwebtoken';
 
 export const getContext = (context: any) => {
     if (!context.req.headers.authorization) {
@@ -9,10 +8,10 @@ export const getContext = (context: any) => {
     const isAuthenticated = async () => {
 
         const { authorization: token } = context.req.headers
-        const response: any = await new Auth().isTokenValid(token);
-
-        if (response.error) throw new Error(response.error);
-        //const decoded = jwt.decode(token, { complete: true });
+        const response: any = await new Auth().isTokenValid(token)
+        
+        // const decoded = jwt.decode(token, { complete: true });
+        // console.log(decoded)
         console.log('user is authenticated')
         return
     }
