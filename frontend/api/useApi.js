@@ -1,25 +1,56 @@
-import { useEffect } from 'react';
-import useSWR from 'swr';
-
-import fetcher from './fetcher';
+import { useEffect, useState } from 'react';
 import useAppContext from '../api/appcontext';
 
 const useApi = (gql) => {
-    const { data, error } = useSWR(gql, fetcher);
+    const [errors, setErrors] = useState(false);
+    const [data, setData] = useState([]);
 
     const { dispatch } = useAppContext();
     
     
-    useEffect(() => {
+    useEffect(async () => {
+        let cancelRequest = false;
         
-        if(error) return dispatch({type:'ERROR', error: error});
+        const response = await fetchData(gql,'')
+        
+        const { data, errors } = response;
 
-        if(data) return dispatch({type:'FINISHED_LOADING', data: data})
+        if(errors){ 
+            setErrors(errors)
+            return dispatch({type:'ERROR', error: errors[0]});
+        }
+
+        if(data){
+            setData(data)
+            return dispatch({type:'FINISHED_LOADING', data: data})
+        }
+
+
+        return function cleanup() {
+            cancelRequest = true;
+        };
         
-    }, [data, error]);
+    }, []);
+
+
+    async function fetchData(query, payload){
+        let headers = { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.apiKey}`
+        };
+      
+        let response = await fetch('http://localhost:4000/graphql', {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify({query}),
+        })
+        
+        response = await response.json()
+
+        return response;
+    }
  
-
-    return { data, error }
+    return { data, errors }
 }
 
 export default useApi;

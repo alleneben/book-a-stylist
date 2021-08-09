@@ -26,7 +26,8 @@ export class Auth {
         })
     }
 
-    public async isTokenValid(token: any){
+   
+    public isTokenValid(token: any){
 
         if (token){
             const bearerToken = token.split(" ")
@@ -42,8 +43,8 @@ export class Auth {
                     },
                     (error: any, decoded: any) => {
                         
-                        if(error) resolve({ error });
-
+                        if(error) reject({ error });
+            
                         if(decoded) resolve({ decoded });
                     }
                 );

@@ -27,7 +27,7 @@ export default function Home() {
     }
   }
   `
-  const { data, error } = useApi(gql)
+  const { data, errors } = useApi(gql)
 
 
   return (

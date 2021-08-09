@@ -16,8 +16,8 @@ const AreaStylistSection = () => {
     const textColor = useColorModeValue("gray.800", "white");
 
     const { state } = useAppContext();
-
-    if(state.error) return <h1>{ (state.error).toString() }</h1>
+    
+    if(state.error) return <h1>{ (state.error.message).toString() }</h1>
     if(state.loading) return <h1>Loading....</h1>
 
     const { providers } = state.data;

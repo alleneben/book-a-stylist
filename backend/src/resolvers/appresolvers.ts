@@ -9,7 +9,7 @@ export const resolvers: IResolvers = {
             return User.findOne({ email: user.email });
         },
         users: async (_, { params = {} }, { isAuthenticated }) => {
-            isAuthenticated()
+            await isAuthenticated()
 
             const pd = JSON.parse(JSON.stringify(params));
             const data = await User.find(pd)
@@ -18,7 +18,8 @@ export const resolvers: IResolvers = {
         },
 
         providers: async (_, { params = {} }, { isAuthenticated }) => {
-            isAuthenticated()
+
+            await isAuthenticated()
 
             const pd = JSON.parse(JSON.stringify(params));
             const data = await Provider.find(pd)
