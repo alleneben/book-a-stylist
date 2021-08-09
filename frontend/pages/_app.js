@@ -5,13 +5,14 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { MenuProvider } from '../components/menu/menu_context';
 import theme from '../styles/theme';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
       <MenuProvider>
-      <Component {...pageProps} />
+        <Component {...pageProps} key={router.route} />
       </MenuProvider>
     </ChakraProvider>
+
   )
 }
 

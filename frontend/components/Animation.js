@@ -143,3 +143,7 @@ export const handleExitAnimation = () => {
     })
     return exit;
 }
+
+export const handleTransition = () => {
+    
+}

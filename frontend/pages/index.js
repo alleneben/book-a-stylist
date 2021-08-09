@@ -2,12 +2,13 @@
 import Head from 'next/head';
 
 import Basfooter from '../components/footer';
+import PageTransition from '../components/Hoc/withTransition';
 import MenuWrapper from '../components/menu/menu_wrapper';
 
 // Home function which is task to view the create page
-export default function Home() {
+function Home() {
   return (
-    <div>
+    <PageTransition>
       <Head>
         <script type="text/javascript" dangerouslySetInnerHTML={{ __html: process.env.jqueryFile }}></script>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -22,6 +23,11 @@ export default function Home() {
       <footer className="main__footer">
         <Basfooter />
       </footer>
-    </div>
+    </PageTransition>
   )
 }
+
+
+export default Home
+
+
