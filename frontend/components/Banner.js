@@ -8,7 +8,6 @@ import {
   Image,
   Stack,
   Text,
-  useColorModeValue,
 } from '@chakra-ui/react';
 
 import Search from './Search';
@@ -34,7 +33,7 @@ const Banner = () => {
                 width: 'full',
                 height: '30%',
                 position: 'absolute',
-                bottom: 1,
+                bottom: 0.2,
                 left: 0,
                 bg: 'red.400',
             
@@ -63,7 +62,7 @@ const Banner = () => {
           align={'center'}
           position={'relative'}
           w={'full'}>
-          <Blob
+          {/* <Blob
             w={'150%'}
             h={'150%'}
             position={'absolute'}
@@ -71,7 +70,7 @@ const Banner = () => {
             left={0}
             
             color={useColorModeValue('#EBF3FF', '#EBF3FF')}
-          />
+          /> */}
           <Box
             position={'relative'}
 

@@ -1,11 +1,10 @@
 // Main View
 import Head from 'next/head';
+
+import useApi from '../api/useApi';
 import Basfooter from '../components/footer';
 import PageTransition from '../components/Hoc/withTransition';
 import MenuWrapper from '../components/menu/menu_wrapper';
-
-
-import useApi from '../api/useApi';
 
 // Home function which is task to view the create page
 function Home() {
@@ -52,6 +51,5 @@ function Home() {
 }
 
 
-export default Home
 
 
