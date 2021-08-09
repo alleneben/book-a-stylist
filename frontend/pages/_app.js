@@ -6,7 +6,7 @@ import { MenuProvider } from '../components/menu/menu_context';
 import { AppProvider } from '../api/appcontext';
 import theme from '../styles/theme';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <AppProvider>
       <ChakraProvider theme={theme}>

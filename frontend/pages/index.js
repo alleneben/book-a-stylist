@@ -1,6 +1,7 @@
 // Main View
 import Head from 'next/head';
 import Basfooter from '../components/footer';
+import PageTransition from '../components/Hoc/withTransition';
 import MenuWrapper from '../components/menu/menu_wrapper';
 
 
@@ -31,7 +32,7 @@ export default function Home() {
 
 
   return (
-    <div>
+    <PageTransition>
       <Head>
         <script type="text/javascript" dangerouslySetInnerHTML={{ __html: process.env.jqueryFile }}></script>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -46,6 +47,11 @@ export default function Home() {
       <footer className="main__footer">
         <Basfooter />
       </footer>
-    </div>
+    </PageTransition>
   )
 }
+
+
+export default Home
+
+

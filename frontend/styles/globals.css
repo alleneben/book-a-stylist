@@ -1,22 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
 
-
-*{
-  font-family: "Roboto", sans-serif;
+@font-face {
+  font-family: "Tisa";
+  src: url("/fonts/Tisa/TisaSansPro-Light.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: "Tisa";
+  src: url("/fonts/Tisa/TisaSansPro-Bold.ttf");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tisa";
+  src: url("/fonts/Tisa/TisaSansPro-Black.ttf");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+* {
+  font-family: "Tisa";
+}
+
+.awssld__timer {
+  background-color: var(--chakra-colors-blue-500) !important;
+}
+
 html,
 body {
   min-height: 100%;
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Tisa";
   background: white;
-
   font-weight: 400;
   font-size: "14px";
   line-height: 1.4;
+  font-style: normal;
+  min-width: 100%;
 }
-
 
 a {
   color: inherit;
@@ -161,7 +189,7 @@ a {
   background-color: white;
 }
 
-button {
+editor {
   outline: none;
 }
 
@@ -190,15 +218,14 @@ Link {
   flex-direction: column;
 }
 
-.menu__close__div{
+.menu__close__div {
   justify-content: flex-end;
   display: flex;
   align-items: flex-end;
   justify-items: end;
- 
 }
 
-.menu__close{
+.menu__close {
   margin-bottom: 10px;
   margin-top: 10px;
   justify-content: flex-end;
@@ -206,11 +233,10 @@ Link {
   display: flex;
   justify-self: flex-end;
   align-items: flex-end;
- 
 }
-.menu__close:hover{
+.menu__close:hover {
   background-color: var(--chakra-colors-red-400);
-  transition: 500ms linear; 
+  transition: 500ms linear;
 }
 
 .menu {
@@ -241,7 +267,7 @@ Link {
 
 .menu_list_item {
   margin-bottom: 0.8em;
- letter-spacing: 0;
+  letter-spacing: 0;
 }
 
 .menu_list_link {
@@ -269,7 +295,7 @@ Link {
 .menu_list_link:after,
 .menu_list_link:before {
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   border: 1px solid rgba(255, 255, 255, 0);
   bottom: 0px;
   content: " ";
@@ -283,7 +309,7 @@ Link {
 .menu_list_link:hover:after,
 .menu_list_link:hover:before {
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   border-color: #fff;
   transition: width 350ms ease-in-out;
   width: 70%;
@@ -294,7 +320,6 @@ Link {
   top: 0;
   width: 70%;
 }
-
 
 /* .menu_trigger {
   
@@ -327,7 +352,6 @@ Link {
   transform: translateX(0);
 } */
 
-
 .menu_trigger {
   border: 0 solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
@@ -353,12 +377,13 @@ Link {
 
 .menu_trigger:hover {
   border: 1px solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   text-shadow: 1px 1px 2px #427388;
 }
-.mega__menu{
+.mega__menu {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -369,7 +394,7 @@ Link {
   border: 0 solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
   outline: 1px solid;
-  
+
   outline-color: rgba(0, 0, 0, 0.5);
   outline-offset: 0px;
   text-shadow: none;
@@ -391,27 +416,92 @@ Link {
 
 .menu__detail:hover {
   border: 1px solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   text-shadow: 1px 1px 2px #427388;
 }
 
-
 .app-image-gallery {
   margin: 0 auto;
   width: 65%;
-
 }
 
-.upper__layer__detail{
- overflow: hidden;
- scroll-behavior: none;
+.upper__layer__detail {
+  overflow: hidden;
+  scroll-behavior: none;
 }
 
-.detail__page{
-  overflow:hidden;
+.detail__page {
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
-  background-color:  #F9FAFB;
+  background-color: #f9fafb;
 }
+
+.editor {
+  line-height: 40px;
+  background: transparent;
+  position: relative;
+  padding-top: 5px;
+  z-index: 2;
+  color: #fff;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: 2px solid var(--chakra-colors-blue-500);
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+.editor:hover {
+  color: #fff;
+}
+.editor:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--chakra-colors-blue-500);
+  z-index: -1;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+  -webkit-transform: rotateX(0);
+  transform: rotateX(0);
+  transition: all 0.3s ease;
+}
+.editor:hover:after {
+  -webkit-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+}
+
+.slide-in {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: #066bb8;
+    transform-origin: left;
+  }
+
+  .slide-out {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: #066bb8;
+    transform-origin: right;
+  }

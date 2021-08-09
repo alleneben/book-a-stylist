@@ -37,7 +37,7 @@ const Banner = () => {
                 bottom: 1,
                 left: 0,
                 bg: 'red.400',
-                zIndex: -1,
+            
               }}>
               Find your,
             </Text>
@@ -69,8 +69,8 @@ const Banner = () => {
             position={'absolute'}
             top={'-20%'}
             left={0}
-            zIndex={-1}
-            color={useColorModeValue('red.50', 'red.400')}
+            
+            color={useColorModeValue('#EBF3FF', '#EBF3FF')}
           />
           <Box
             position={'relative'}

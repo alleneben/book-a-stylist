@@ -3,6 +3,7 @@ import {
   useState,
 } from 'react';
 
+import Link from 'next/link';
 import {
   FaFacebookF,
   FaFacebookMessenger,
@@ -17,7 +18,6 @@ import {
   Box,
   Flex,
   HStack,
-  Link,
   Stack,
   Text,
 } from '@chakra-ui/react';
@@ -28,6 +28,8 @@ import { menuContext } from './menu/menu_context';
 const NavBar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
+    const { menuState, setMenuState } = useContext(menuContext)
+
 
     return (
 
@@ -41,6 +43,11 @@ const NavBar = (props) => {
                 <MenuToggle toggle={toggle} isOpen={isOpen} />
                 <MenuLinks isOpen={isOpen} />
                 <MenuLast />
+                <Box   display={{base: "block", md: "none", }} >
+                <RiMenu3Fill cursor='pointer' onClick={() => setMenuState(!menuState)} />
+                </Box>
+                    
+               
             </NavBarContainer>
             {props.children}
         </div>
@@ -74,29 +81,17 @@ const UpperSection = () => {
 }
 
 const MenuLast = () => {
-    const { menuState, setMenuState } = useContext(menuContext)
 
-    // useEffect(() => {
-    //     // If the menu is open and we click the menu button to close it.
-    //     if (menuState === true) {
-    //         console.log(menuState)
-    //         handleEntranceAnimation().play();
-    //     } else if (
-    //         menuState === true ||
-    //         (menuState === true && menuState === null)
-    //     ) {
 
-    //     }
-    // }, [menuState]);
     return (
         <Stack spacing={8}
             align="center"
             justify={["center", "space-between", "flex-end", "flex-end"]}
             direction={["column", "row", "row", "row"]}
+            display={{base: "none", md: "flex"}}
             pt={[4, 4, 0, 0]}>
-            <MenuItem to="/" className='borderFade'>Login</MenuItem>
+            <MenuItem to="/login" className='borderFade'>Login</MenuItem>
             <MenuItem to="/how" className='slideUpBtn'>SignUp</MenuItem>
-            <RiMenu3Fill cursor='pointer' onClick={() => setMenuState(!menuState)} />
         </Stack>
     )
 }
@@ -136,7 +131,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
         <Link
             outlineColor='none'
             outline='none'
-          
+
             href={to} _hover={{
                 color: 'pink',
             }}>
@@ -185,7 +180,7 @@ const NavBarContainer = ({ children, ...props }) => {
             h={20}
             mb={2}
             p={3}
-            bg={["red", "primary.500", "transparent", "transparent"]}
+            bg="transparent"
             color={["red", "white", "primary.700", "primary.700"]}
             {...props}
         >
