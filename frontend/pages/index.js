@@ -8,7 +8,7 @@ import MenuWrapper from '../components/menu/menu_wrapper';
 import useApi from '../api/useApi';
 
 // Home function which is task to view the create page
-export default function Home() {
+function Home() {
   let params = "params: {}"
   let func = 'providers'
   let query = `
