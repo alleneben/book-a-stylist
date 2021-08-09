@@ -19,8 +19,7 @@ const DB_CONFIG: ConnectionOptions = {
     database: process.env.DB,
     entities: [
         path.join(__dirname,'../entities/**/**.ts')
-    ],
-    // synchronize: true
+    ]
 }
 
 export class DB {

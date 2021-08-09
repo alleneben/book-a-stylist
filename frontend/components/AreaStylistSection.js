@@ -8,9 +8,22 @@ import {
 
 import AreaStylist from './AreaStylist';
 
+import  useAppContext from '../api/appcontext'
+
 const AreaStylistSection = () => {
+    const bgColor = useColorModeValue("#F9FAFB", "gray.600");
+    const headingColor = useColorModeValue("gray.800", "white");
+    const textColor = useColorModeValue("gray.800", "white");
+
+    const { state } = useAppContext();
+    
+    if(state.error) return <h1>{ (state.error.message).toString() }</h1>
+    if(state.loading) return <h1>Loading....</h1>
+
+    const { providers } = state.data;
+
     return (
-        <Box bg={useColorModeValue("#F9FAFB", "gray.600")}
+        <Box bg={bgColor}
             p={50}
             display="flex"
             flexDirection="column"
@@ -21,20 +34,20 @@ const AreaStylistSection = () => {
                 lineHeight={1.1}
                 fontWeight={600}
                 fontSize={{ base: '3xl', sm: '3xl', lg: '5xl' }}
-                color={useColorModeValue("gray.800", "white")}>Recommended Stylist</Heading>
+                color={headingColor}>Recommended Stylist</Heading>
             <Text fontSize="sm"
 
                 mt={2}
-                color={useColorModeValue("gray.800", "white")}>Getting stylist has to be that easy</Text>
+                color={textColor}>Getting stylist has to be that easy</Text>
 
             <Flex
                 direction={{ base: "column", md: "row", lg: "row" }}
                 alignItems="center"
                 justifyContent="space-between"
             >
-                <AreaStylist />
-                <AreaStylist />
-                <AreaStylist />
+                {
+                   providers.map((data, idx) => <AreaStylist key={`area-section-${idx}`} data={data}/> ) 
+                }
           
             </Flex>
         </Box>

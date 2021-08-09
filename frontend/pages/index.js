@@ -1,11 +1,35 @@
 // Main View
 import Head from 'next/head';
-
 import Basfooter from '../components/footer';
 import MenuWrapper from '../components/menu/menu_wrapper';
 
+
+import useApi from '../api/useApi';
+
 // Home function which is task to view the create page
 export default function Home() {
+  let params = "params: {}"
+  let func = 'providers'
+  let query = `
+    id
+    userId
+    provider_name
+    service {
+      id
+      service_name
+      providerId
+      userId
+    }
+  `
+  let gql = `
+    { ${func}(${params}){
+      ${query}
+    }
+  }
+  `
+  const { data, errors } = useApi(gql)
+
+
   return (
     <div>
       <Head>
