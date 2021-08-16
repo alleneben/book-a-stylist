@@ -41,7 +41,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main__body" color='black' >
-        <MenuWrapper/>
+        <MenuWrapper />
       </main>
       <footer className="main__footer">
         <Basfooter />
@@ -49,6 +49,9 @@ export default function Home() {
     </PageTransition>
   )
 }
+
+
+
 
 
 

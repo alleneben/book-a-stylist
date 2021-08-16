@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import gsap, { TweenMax } from 'gsap';
 
 // let overlay = gsap.to(".test", {
 //     duration: 1,
@@ -120,7 +120,7 @@ export const handleEntranceAnimation = () => {
 
 export const handle2ndEntranceAnimtion = () => {
     console.log('Hello')
-    gsap.set(".test", {  display: 'flex' })
+    gsap.set(".test", { display: 'flex' })
     var entrance = gsap.fromTo(".test", {
         x: 0,
         y: "100vh"
@@ -129,7 +129,7 @@ export const handle2ndEntranceAnimtion = () => {
     gsap.fromTo('.menu_list_item a', {
         xPercent: -100,
         opacity: 0
-    }, {duration:2, opacity: 1, xPercent: 0, stagger: 0.1, ease: "elastic.out(1,0.3)"})
+    }, { duration: 2, opacity: 1, xPercent: 0, stagger: 0.1, ease: "elastic.out(1,0.3)" })
     return entrance;
 }
 
@@ -144,6 +144,96 @@ export const handleExitAnimation = () => {
     return exit;
 }
 
-export const handleTransition = () => {
-    
+export const handlePanelAnimation = () => {
+    const tl = gsap.timeline({ paused: false });
+
+    tl.to(".panels .panel:first-child, .panels .panel:last-child", {
+        scaleY: 1,
+        duration: 1
+    })
+        .to(
+            ".panels .panel:not(:first-child):not(:last-child)",
+            { scaleY: 1 },
+            "-=0.5"
+        )
+        .to(".panels .panel", {
+            scaleY: 0,
+            duration: 0.3,
+            stagger: 0.05
+        })
+        .to(".panels", {
+            clipPath: "circle(0%)",
+            skewX: 0,
+            duration: 1,
+            display:"none"
+        })
+        .to(
+            ".page-main",
+            {
+                clipPath: "circle(100%)",
+                duration: 1
+            },
+            "-=0.3"
+        );
+
+        return tl;
+}
+
+export const handleHeader = () => {
+    gsap.to(".first", {
+        duration: 1.5,
+        delay: .5,
+        top: "-100%",
+        ease: "Expo.easeInOut"
+    });
+
+    gsap.to(".second", 1.5, {
+        delay: .7,
+        top: "-100%",
+        ease: "Expo.easeInOut"
+    });
+
+    gsap.to(".third", 1.5, {
+        delay: .9,
+        top: "-100%",
+        ease: "Expo.easeInOut"
+    });
+
+    TweenMax.staggerFrom(".navbar", 1.5, {
+        delay: 1.5,
+        opacity: 0,
+        x: "-20",
+        ease: "Expo.easeInOut"
+    }, 0.08);
+
+    TweenMax.from(".textHeading", 1.5, {
+        delay: 1,
+        y: "100%",
+        opacity: 0,
+        ease: "Expo.easeInOut"
+    });
+    TweenMax.from(".subheading", 1.5, {
+        delay: 1.2,
+        y: "100%",
+        opacity: 0,
+        ease: "Expo.easeInOut"
+    });
+
+    TweenMax.from(".layoutKey", 1.5, {
+        delay: 1.3,
+        y: "100%",
+        ease: "Expo.easeInOut"
+    });
+    TweenMax.from(".divider", 1.5, {
+        delay: 1.5,
+        opacity: 0,
+        x: "-10000",
+        ease: "Expo.easeInOut"
+    });
+    TweenMax.from(".headerImage", 1.5, {
+        delay: 1.5,
+        opacity: 0,
+        y: "20",
+        ease: "Expo.easeInOut"
+    });
 }
