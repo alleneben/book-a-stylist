@@ -15,8 +15,9 @@ function HomeShop() {
     return (
         <>
             <Box  position="relative" background="white" mt="20" overflow="hidden">
-                <Flex >
+                <Flex justifyContent="center">
                     <Flex
+                    display={{ base: "none", md: "flex", lg: "flex" }}
                         pl={{ md: "20px", lg: "9rem", "2xl": "11%" }}
                         direction="row"
                         pt="12"
@@ -66,9 +67,16 @@ function HomeShop() {
                         </Flex>
                     </Flex>
                     <Box
-                        pl={{ base: "3%", md: "7%" , lg:"9%"}}
+                        pl={{ base: "0", md: "7%" , lg:"9%"}}
                         
                     >
+                        <Flex display={{ base: "flex", md: "none", lg: "none" }} alignItems="center" w="100%" mb="1rem" className="divider"  alignContent="center">
+                            <Box display="flex" alignItems="center" justifyContent="center"><Heading as="h6" fontSize="md" fontWeight="bold" textTransform="uppercase" >Featured Shop</Heading></Box>
+                            <Box width="130px" paddingRight="1rem" paddingLeft="3" >
+                                <Divider borderColor="black" paddingLeft="10px" orientation="horizontal" />
+                            </Box>
+                            <Box alignItems="center" justifyContent="center" display="flex" w="7"><Text color='blackAlpha.400'>03</Text></Box>
+                        </Flex>
                         <Cards />
                     </Box>
 
@@ -84,7 +92,7 @@ const Cards = () => {
             {tabData.map((tab, index) => (
                 <Box
                 data-aos="zoom-in"
-                    maxW="60"
+                    maxW={{base:"80", md:"60",lg:"60"}}
                     mx="auto"
                     bg={useColorModeValue("white", "gray.800")}
                     shadow="sm"

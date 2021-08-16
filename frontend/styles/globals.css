@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
 
 :root {
-  
   --underline-intrinsic-width: 8;
   --underline-width: 12;
   --underline-color: #f1a1e3;
@@ -51,13 +50,13 @@ body {
   margin: 0;
 
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100% );
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   font-weight: 400;
   font-size: "14px";
   line-height: 1.4;
   font-style: normal;
   min-width: 100%;
-  
+
   /* overflow: hidden; */
 }
 
@@ -532,7 +531,6 @@ Link {
   font-size: 20px;
   line-height: 40px;
   color: #ecf0f1;
- 
 }
 .content__container {
   font-weight: 600;
@@ -765,7 +763,7 @@ Link {
   background: #eb3349;
   border-radius: 1px;
 }
-.tab__content{
+.tab__content {
   padding-right: 10%;
 }
 .tabs .tab__content section {
@@ -784,7 +782,6 @@ Link {
   padding-left: 13px;
   padding-top: 12px;
   height: 670px;
-  
 }
 
 .tabs
@@ -879,7 +876,6 @@ Link {
     > label {
     background: rgba(0, 0, 0, 0.08);
   }
-  
 }
 .tabs input[name="tab-control"]:nth-of-type(2):checked ~ .slider {
   -webkit-transform: translateX(100%);
@@ -936,7 +932,6 @@ Link {
     > label {
     background: rgba(228, 43, 43, 0.08);
   }
-
 }
 
 @media (max-width: 600px) {
@@ -954,25 +949,46 @@ Link {
     width: 100%;
   }
   .tabs ul {
-    width: 63%
+    width: 63%;
   }
-  .tabs .slider{
+  .tabs .slider {
     width: 16%;
   }
 }
 
-
-.shops{
+.shops {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(2, 0.4fr);
   grid-gap: 20px 20px;
 }
 
-@media screen and (max-width: 600px){
-  .shops{
-    grid-template-rows: auto auto auto;
+@media screen and (max-width: 600px) {
+  .shops {
+    /* grid-template-rows: auto auto auto; */
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+   
+    align-items: center; 
+        justify-content: center;
+  }
+  .tabs {
+    left: 55%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: relative;
+    padding: 0px 50px;
+    width: 96%;
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 520px;
+  }
+  .tabs .slider {
+    width: 15.7%;
   }
 }
 
-/* Pattern */
+/* @media screen and (max-width: 420px) {
+
+} */

@@ -66,7 +66,8 @@ const HomeSub = () => {
                             bg="white"
                             type="email"
                             placeholder="Enter your email..."
-                            required="true"
+                            required={true}
+
                             borderRadius= "0"
                         />
                     </GridItem>

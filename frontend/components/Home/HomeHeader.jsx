@@ -33,15 +33,22 @@ const HomeHeader = () => {
                 <Box bg="#EFEFEF" h="140%" w="100vw" position="absolute">
                     <HeaderSection />
                     <Box position="relative" top="23%" padding="1" paddingX={{ lg: '8' }} alignItems="center" >
+                    <Flex display={{ base: "flex", md: "none", lg: "none" }} pl="1rem" alignItems="center" w="100%" mb="1rem" className="divider"  alignContent="center">
+                            <Box display="flex" alignItems="center" justifyContent="center"><Heading as="h6" fontSize="md" fontWeight="bold" textTransform="uppercase" >intro</Heading></Box>
+                            <Box width="130px" paddingRight="1rem" paddingLeft="3" >
+                                <Divider borderColor="black" paddingLeft="10px" orientation="horizontal" />
+                            </Box>
+                            <Box alignItems="center" justifyContent="center" display="flex" w="7"><Text color='blackAlpha.400'>01</Text></Box>
+                        </Flex>
                         <Flex alignItems="center" justifyContent={{ base: "flex-start", lg: "center" }} w={{ base: "100vw", lg: "60vw" }}>
-                            <Flex  className="divider" direction="column" alignContent="center">
+                            <Flex display={{ base: "none", md: "flex", lg: "flex" }} className="divider" direction="column" alignContent="center">
                                 <Box w="7" display="flex" alignItems="center" justifyContent="center"><Heading as="h6" fontSize="md" fontWeight="bold" textTransform="uppercase" style={{ textOrientation: 'mixed', writingMode: "vertical-rl" }}>intro</Heading></Box>
                                 <Box height="130px" paddingLeft="3" paddingTop="3" paddingBottom="1">
                                     <Divider borderColor="black" paddingLeft="10px" orientation="vertical" />
                                 </Box>
                                 <Box alignItems="center" justifyContent="center" display="flex" w="7"><Text color='blackAlpha.400'>01</Text></Box>
                             </Flex>
-                            <Flex direction="column" pl={{ base: "0", lg: "32" }}>
+                            <Flex direction="column" pl={{ base: "1rem", lg: "32" }}>
                                 <Heading className="textHeading" size="lg">Book a stylist Now!</Heading>
                                 <Box className="subheading" w={{ md: "380px", lg: '500px' }} pb="5" pt="5"> <Text fontSize="sm"> Booking a stylist has to be easy, fast and secure.Let us show you a new way of booking a stylist under 1 minutes.
                                     Get started quickly and make your way!</Text></Box>

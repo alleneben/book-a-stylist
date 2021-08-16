@@ -8,12 +8,12 @@ import {
 } from '@chakra-ui/react';
 
 const HomeFeatured = () => {
- 
+
     return (
         <div >
             <Box position="relative" background="white" mt="20" overflow="hidden">
                 <Flex w="100%">
-                    <Flex pl={{ md: "20px", lg: "9rem", "2xl": "11%" }} direction="row" pt="12" alignItems="end" justifyContent={{ base: "flex-start", lg: "center" }} >
+                    <Flex display={{ base: "none", md: "flex", lg: "flex" }} pl={{ md: "20px", lg: "9rem", "2xl": "11%" }} direction="row" pt="12" alignItems="end" justifyContent={{ base: "flex-start", lg: "center" }} >
                         <Flex className="divider" direction="column" alignContent="center">
                             <Box w="7" display="flex" alignItems="center" justifyContent="center"><Heading as="h6" fontSize="md" fontWeight="bold" textTransform="uppercase" style={{ textOrientation: 'mixed', writingMode: "vertical-rl" }}>Featured Product</Heading></Box>
                             <Box height="130px" paddingLeft="3" paddingTop="3" paddingBottom="1">
@@ -22,7 +22,14 @@ const HomeFeatured = () => {
                             <Box alignItems="center" justifyContent="center" display="flex" w="7"><Text color='blackAlpha.400'>02</Text></Box>
                         </Flex>
                     </Flex>
-                    <Box  pl={{ base: "10%", md: "20%" }} w={{ base: "700px", md: "800px" }}>
+                    <Box pl={{ base: "5%", md: "20%",  }} w={{ base: "100vw", md: "800px", lg: "700px" }}>
+                        <Flex display={{ base: "flex", md: "none", lg: "none" }} alignItems="center" w="100%" mb="1rem" className="divider"  alignContent="center">
+                            <Box display="flex" alignItems="center" justifyContent="center"><Heading as="h6" fontSize="md" fontWeight="bold" textTransform="uppercase" >Featured Product</Heading></Box>
+                            <Box width="130px" paddingRight="1rem" paddingLeft="3" >
+                                <Divider borderColor="black" paddingLeft="10px" orientation="horizontal" />
+                            </Box>
+                            <Box alignItems="center" justifyContent="center" display="flex" w="7"><Text color='blackAlpha.400'>02</Text></Box>
+                        </Flex>
                         < HomeTabs />
                     </Box>
 
@@ -37,7 +44,7 @@ export default HomeFeatured
 
 const HomeTabs = () => {
     return (
-        <Box  className="tabs">
+        <Box className="tabs">
             <input type="radio" id="tab1" name="tab-control" defaultChecked />
             <input type="radio" id="tab2" name="tab-control" />
             <input type="radio" id="tab3" name="tab-control" />
@@ -56,7 +63,7 @@ const HomeTabs = () => {
 
                     {tabData.map((tab, index) => (
 
-                        <Box   data-aos="zoom-in" key="index" >
+                        <Box data-aos="zoom-in" key="index" >
                             <Box flexDirection="column" display="flex" justifyContent="flex-end" h="64" w={{ base: "40", md: "44", lg: "44" }} px={{ base: "2", md: "0" }} style={{ backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundImage: `url(${tab.background})` }} >
                                 {/* <Image src="/barbar.jpg" h="64" width="48" fit="cover" /> */}
                                 <Badge display="flex" alignItems="center" flexWrap="nowrap" alignContent="center"
