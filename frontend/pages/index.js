@@ -7,7 +7,7 @@ import PageTransition from '../components/Hoc/withTransition';
 import MenuWrapper from '../components/menu/menu_wrapper';
 
 // Home function which is task to view the create page
-export default function Home() {
+function Home() {
   let params = "params: {}"
   let func = 'providers'
   let query = `
