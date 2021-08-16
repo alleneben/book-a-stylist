@@ -115,7 +115,7 @@ export default function HomeFooter() {
                     spacing={4}
                     justify={{ md: 'space-between' }}
                     align={{ md: 'center' }}>
-                    <Text fontSize="13">Copyright © 2021 BookAStylist all rights reserved. Powered by Designik</Text>
+                    <Text fontSize="13">Copyright © 2021 BookAStylist all rights reserved.</Text>
                     <Stack direction={'row'} spacing={6}>
                         <MenuItem to="/" className='borderLeftRight' fontWeight="bold" color="black">Home</MenuItem>
                         <MenuItem to="/how" className='borderLeftRight'>Search</MenuItem>
