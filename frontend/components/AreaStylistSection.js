@@ -8,19 +8,15 @@ import {
 
 import AreaStylist from './AreaStylist';
 
-import  useAppContext from '../api/appcontext'
-
 const AreaStylistSection = () => {
     const bgColor = useColorModeValue("#F9FAFB", "gray.600");
     const headingColor = useColorModeValue("gray.800", "white");
     const textColor = useColorModeValue("gray.800", "white");
 
-    const { state } = useAppContext();
     
-    if(state.error) return <h1>{ (state.error.message).toString() }</h1>
-    if(state.loading) return <h1>Loading....</h1>
 
-    const { providers } = state.data;
+
+
 
     return (
         <Box bg={bgColor}
@@ -45,9 +41,7 @@ const AreaStylistSection = () => {
                 alignItems="center"
                 justifyContent="space-between"
             >
-                {
-                   providers.map((data, idx) => <AreaStylist key={`area-section-${idx}`} data={data}/> ) 
-                }
+               <AreaStylist/>
           
             </Flex>
         </Box>

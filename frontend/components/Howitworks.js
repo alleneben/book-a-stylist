@@ -13,7 +13,7 @@ export default function HowItWorks() {
   return (
     <Flex
       bg={useColorModeValue("#F9FAFB", "gray.600")}
-      p={20}
+      pt={20}
       w="full"
       justifyContent="center"
       alignItems="center"
@@ -24,6 +24,7 @@ export default function HowItWorks() {
           columns={{ base: 1, md: 2 }}
           flexDirection="column-reverse"
           mb={24}
+          w="container.xl"
           spacingY={{ base: 10, md: 32 }}
           spacingX={{ base: 10, md: 24 }}
         >

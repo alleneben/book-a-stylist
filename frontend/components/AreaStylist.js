@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 
 const AreaStylist = ({ data }) => {
-  const { provider_name } = data
+
   return (
     <Link href='/detail' >
     <Flex
@@ -59,7 +59,7 @@ const AreaStylist = ({ data }) => {
             fontWeight="bold"
             color={useColorModeValue("gray.800", "white")}
           >
-            {provider_name}
+           DevTow
           </chakra.h1>
 
           <chakra.p py={2} color={useColorModeValue("gray.700", "gray.400")}>
